@@ -1,0 +1,21 @@
+body{
+    background-image: url("/imgs/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;    
+}
+
+h1{
+    text-shadow: 0 0 10px rgb(255, 139, 139);
+}
+
+.starry{
+    background-image: url("/imgs/stars.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;    
+
+    box-shadow: 0 0 35px rgb(224, 224, 224);
+}

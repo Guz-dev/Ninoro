@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets'
+import Logo from '../assets/imgs/GusDevLogo.png'
+interface route{
+    name: string,
+    path: string
+}
+
+interface Props {
+    routes: Array<route>
+}
+ 
+const { routes } = Astro.props
+---
+<h1></h1>

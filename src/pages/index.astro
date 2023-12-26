@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import NinoroProfileImg from '../assets/imgs/zhongli.jpg';
+import Star from '../assets/imgs/star.png';
+
+---
+
+<Layout title="Ninoro">
+    <h1 class="mt-2 mb-2 w-full text-center text-5xl text-white">★ 𝑵𝒊𝒏𝒐𝒓𝒐 ☆</h1>
+    <a href="christmas.html" class="bg-gradient-to-r font-semibold from-red-700 via-red-700 to-green-900 text-white p-2 m-2 rounded-full animate-pulse"><h2>! Presioname !</h2></a>
+    <content class="md:flex md:flex-row flex-col w-4/5 h-4/5 justify-center items-center gap-7">
+        <img class="flex md:h-4/5 md:w-4/5justify-center mb-5 items-center rounded-xl shadow-white shadow-lg" src={ NinoroProfileImg.src } alt="Ninoro">
+        
+        <starrysky class="flex flex-col w-auto md:h-full rounded-full justify-center items-center gap-4">
+            <p class="md:w-2/3 text-white text-center text-lg font-semibold bg-slate-600 rounded-lg p-2 bg-opacity-85">Hola, yo soy Ninoro, aquí podrás encontrar a las personas que significan algo para mí recientemente.</p>
+            <div class="flex flex-col w-auto h-full md:h-1/2 p-8 px-9 justify-center items-center md:rounded-2xl rounded-3xl shadow-sky-300 starry">
+                <h2 class="text-3xl text-white text-center">★ 𝓔𝓼𝓽𝓻𝓮𝓵𝓵𝓪𝓼 ☆ </h2>
+                <a class="flex justify-center items-center md:p-3 m-2 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-lg font-semibold rounded-full animate-pulse" href="http://aminoapps.com/p/sukkb2"><img class="flex w-7 m-1" src={ Star.src }> Gumi <img class="flex w-7 m-1" src={ Star.src }></a>
+                <div class="flex">
+                    <a class="flex justify-center items-center md:p-3 m-2 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-lg font-semibold rounded-full animate-pulse" href="http://aminoapps.com/p/5auoj9"><img class="flex w-7 m-1" src={ Star.src }> Reiko <img class="flex w-7 m-1" src={ Star.src }></a>
+                    <a class="flex justify-center items-center md:p-3 m-2 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-lg font-semibold rounded-full animate-pulse" href="http://aminoapps.com/p/vfs77b"><img class="flex w-7 m-1" src={ Star.src }> Cinna <img class="flex w-7 m-1" src={ Star.src }></a>
+                </div>
+                <a class="flex justify-center items-center md:p-3 m-2 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-lg font-semibold rounded-full animate-pulse" href="http://aminoapps.com/p/55b7er"><img class="flex w-7 m-1" src={ Star.src }> Dante <img class="flex w-7 m-1" src={ Star.src }></a>
+            </div>
+        </starrysky>
+    </content>
+</Layout>
+
+<style is:global>
+    body{
+        background-image: url("../assets/imgs/bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;    
+    }
+
+    h1{
+        text-shadow: 0 0 10px rgb(255, 139, 139);
+    }
+
+    .starry{
+        background-image: url("../assets/imgs/stars.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;    
+
+        box-shadow: 0 0 35px rgb(224, 224, 224);
+    }
+</style>
