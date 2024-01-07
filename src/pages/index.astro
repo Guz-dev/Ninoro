@@ -10,6 +10,16 @@ import { FRIENDS_DATA } from '../assets/data/friends.json';
 const rows = Math.ceil(FRIENDS_DATA.length / 2)
 const cols = Math.ceil(FRIENDS_DATA.length / rows)
 
+const friends_matrix = Array(rows).fill("").map((_, i) => (
+    Array(cols).fill("").map((_, j) => {
+        const friend = FRIENDS_DATA[i * cols + j]
+        if (!friend) return null
+        return friend
+    })
+))
+
+
+
 ---
 
 <Layout title="Ninoro">
@@ -21,26 +31,36 @@ const cols = Math.ceil(FRIENDS_DATA.length / rows)
             <p class="md:w-2/3 text-white text-center text-md font-semibold bg-slate-600 rounded-lg p-2 bg-opacity-60">Hola, yo soy Ninoro, aquí podrás encontrar a las personas que significan algo para mí recientemente.</p>
             <div class="flex flex-col w-auto h-full md:h-1/2 p-2 px-16 justify-center items-center md:rounded-2xl rounded-3xl shadow-sky-300 starry opacity-70">
                 <h2 class="text-2xl text-white text-center">★ 𝓔𝓼𝓽𝓻𝓮𝓵𝓵𝓪𝓼 ☆</h2>
-                { Array(rows).fill("").map((_, i) => (
-                    <div class="flex flex-row justify-center items-center">
-                        { Array(cols).fill("").map((_, j) => {
-                            const friend = FRIENDS_DATA[i * cols + j]
-                            if (!friend) return null
-                            return (
-                                <a class="flex justify-center items-center min-w-fit px-2 md:p-2 m-1 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-md font-semibold rounded-full animate-pulse" href={ friend.link }>
-                                    <img class="flex w-7 m-1" src={ Star.src }></img> 
-                                        { friend.name } 
-                                    <img class="flex w-7 m-1" src={ Star.src }></img>
-                                </a>
-                            )
-                        })}
-                    </div>
-                )) }
+                { friends_matrix.map( friend_row => {
+                    return (
+                        <div class="flex flex-row justify-center items-center gap-2">
+                            { friend_row.map( friend => {
+                                if (!friend) return null
+                                return (
+                                    <a class="flex justify-center items-center min-w-fit px-2 md:p-2 m-1 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-md font-semibold rounded-full animate-pulse" href={ friend.link }>
+                                        <img class="flex w-7 m-1" src={ Star.src }>
+                                            <span>{ friend.name }</span>
+                                        <img class="flex w-7 m-1" src={ Star.src }>
+                                    </a>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
             </div>
         </starrysky>
     </content>
 </Layout>
 
+<!-- 
+<div class="flex flex-row justify-center items-center">
+    <a class="flex justify-center items-center min-w-fit px-2 md:p-2 m-1 bg-blue-500 text-white hover:bg-blue-200 hover:text-black transition-all ease-in duration-200 text-md font-semibold rounded-full animate-pulse" href={ friend.link }>
+        <img class="flex w-7 m-1" src={ Star.src }></img> 
+            { friend.name } 
+        <img class="flex w-7 m-1" src={ Star.src }></img>
+    </a> 
+</div>
+-->
 <style is:global>
     body{
         background-image: url("../assets/imgs/main_bg.gif");
