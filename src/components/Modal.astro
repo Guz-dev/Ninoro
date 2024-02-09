@@ -1,0 +1,27 @@
+---
+const { mes, message } = Astro.props;
+---
+<dialog id="dialog" class="fixed left-0.5 top-0.5 -translate-x-0.5 -translate-y-0.5 w-full h-full justify-center items-center bg-black bg-opacity-40">
+    <card class="flex flex-col w-5/6 h-auto text-center justify-center items-center bg-white rounded-xl p-5">
+        <h1 class="text-3xl text-center">❤️ Mes { mes } ❤️</h1>
+        <p class="text-2xl text-center">{ message }</p>
+        <form method="dialog" class="flex justify-center">
+            <button id="close" class="border-2 p-2 bg-gray-500 text-white rounded-md" type="submit">Cerrar</button>
+        </form>
+    </card>    
+</dialog>
+
+<script>
+    const dialog_close = document.getElementById('close');
+    const dialog = document.getElementById('dialog');
+
+    dialog_close.addEventListener('click', () => {
+        dialog.style.display = 'none';
+    });
+</script>
+
+<style>
+    p {
+        text-wrap: pretty;
+    }
+</style>
