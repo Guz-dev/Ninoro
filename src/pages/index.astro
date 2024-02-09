@@ -10,9 +10,6 @@ import Modal from '../components/Modal.astro';
 
 import messages_data from '../assets/data/months.json'
 
-messages_data.forEach((message) => {
-    console.log(message.year);
-});
 ---
 
 <Layout title="Ninoro">
@@ -47,9 +44,12 @@ messages_data.forEach((message) => {
     document.querySelectorAll('.button_hearts').forEach((button) => {
         button.addEventListener('click', () => {
             const modal = document.getElementById("dialog");
-            audio.volume = 0.1;
-            audio.play();
-            modal.style.display = "flex";
+            if(audio){
+                audio.volume = 0.1;
+                audio.play();
+            }
+
+            if(modal) modal.style.display = "flex";
         });
     });
 </script>
