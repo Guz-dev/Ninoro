@@ -15,9 +15,11 @@ const { mes, message } = Astro.props;
     const dialog_close = document.getElementById('close');
     const dialog = document.getElementById('dialog');
 
-    dialog_close.addEventListener('click', () => {
-        dialog.style.display = 'none';
-    });
+    if(dialog_close){
+        dialog_close.addEventListener('click', () => {
+            if(dialog) dialog.style.display = 'none';
+        });
+    }
 </script>
 
 <style>
