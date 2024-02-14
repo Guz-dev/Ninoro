@@ -9,9 +9,10 @@ import messages_data from '../assets/data/months.json'
 
 import fs from 'fs';
 
+
 const goals_moonmochi = './src/assets/imgs/goals/moonmochi';
 
-const GoalsLength = fs.readdirSync(goals_moonmochi).length;
+const GoalsLength = await fs.readdirSync(goals_moonmochi).length;
 
 // type string
 const arr_mochi_src: string[] = [];
