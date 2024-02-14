@@ -1,5 +1,5 @@
 {
-  "name": "notpou",
+  "name": "ninoro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,5 +15,8 @@
     "astro": "^3.5.4",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17"
   }
 }
