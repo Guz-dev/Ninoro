@@ -1,5 +1,5 @@
 ---
-import cancion from '../assets/sound/cancion.mp3';
+import Cancion from '../assets/sound/cancion.mp3';
 
 import Layout from '../layouts/Layout.astro';
 
@@ -7,21 +7,14 @@ import Modal from '../components/Modal.astro';
 
 import messages_data from '../assets/data/months.json'
 
-import fs from 'fs';
+import Moon1 from '../assets/imgs/goals/moonmochi/1.jpg';
+import Moon2 from '../assets/imgs/goals/moonmochi/2.jpg';
+import Moon3 from '../assets/imgs/goals/moonmochi/3.jpg';
 
+import Ninoro1 from '../assets/imgs/goals/ninoro/1.jpg';
+import Ninoro2 from '../assets/imgs/goals/ninoro/2.jpg';
+import Ninoro3 from '../assets/imgs/goals/ninoro/3.jpg';
 
-const goals_moonmochi = './src/assets/imgs/goals/moonmochi';
-
-const GoalsLength = await fs.readdirSync(goals_moonmochi).length;
-
-// type string
-const arr_mochi_src: string[] = [];
-const arr_nino_src: string[] = [];
-
-for (let i = 1; i <= GoalsLength; i++) {
-    arr_mochi_src.push(`./src/assets/imgs/goals/moonmochi/${i}.jpg`);
-    arr_nino_src.push(`./src/assets/imgs/goals/ninoro/${i}.jpg`);
-}
 
 ---
 
@@ -31,18 +24,36 @@ for (let i = 1; i <= GoalsLength; i++) {
     <goal class="flex w-full md:h-2/5 justify-center items-center gap-2 md:mt-12 mt-20">
 
         <button id="left_slide" class="goal bg-gray-600 bg-opacity-75 rounded-full text-center align-middle text-white text-3xl font-extrabold w-10 h-10 md:opacity-60 hover:opacity-100 -scale-100">➤</button>
-        
-        {Array.from({ length: GoalsLength }, (_, i) => (
-            <slide id={i.toString()} class="hidden justify-center items-center gap-1 slide">                
-                <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                    <img class="flex mb-5 items-center rounded-xl ninoropfp" src={arr_mochi_src[i]} alt="Moonmochi">        
-                </a>
 
-                <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                    <img class="flex mb-5 items-center rounded-xl ninoropfp" src={arr_nino_src[i]} alt="Ninoro">
-                </a>
-            </slide>
-        ))}
+        <slide id="0" class="hidden justify-center items-center gap-1 slide">                
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon1.src} alt="Moonmochi">        
+            </a>
+
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro1.src} alt="Ninoro">
+            </a>
+        </slide>
+
+        <slide id="1" class="hidden justify-center items-center gap-1 slide">                
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon2.src} alt="Moonmochi">        
+            </a>
+
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro2.src} alt="Ninoro">
+            </a>
+        </slide>
+
+        <slide id="2" class="hidden justify-center items-center gap-1 slide">                
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon3.src} alt="Moonmochi">        
+            </a>
+
+            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
+                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro3.src} alt="Ninoro">
+            </a>
+        </slide>
 
         <button id="right_slide" class="goal bg-gray-600 bg-opacity-75 rounded-full text-center align-middle text-white text-3xl font-extrabold w-10 h-10 md:opacity-60 hover:opacity-100">➤</button>
     </goal>
@@ -52,12 +63,12 @@ for (let i = 1; i <= GoalsLength; i++) {
         <hearts class="mt-4">
             {messages_data.map((message, index) => (
                 <button id={index.toString()} class="w-8 h-8 md:opacity-50 hover:opacity-100 transition-all duration-300 button_hearts"></button>
-                <Modal mes={message.month} message={message.message} />
+                <Modal id={index.toString()} mes={message.month} message={message.message} />
             ))}
         </hearts>
     </months>
 
-    <audio loop src={cancion}></audio>
+    <audio loop src={Cancion}></audio>
 </Layout>
 
 <script>
@@ -86,7 +97,7 @@ for (let i = 1; i <= GoalsLength; i++) {
                 actual_slide++;
                 slides[actual_slide].classList.remove('hidden');
                 slides[actual_slide].classList.add('flex');
-                slides[actual_slide].style.animation = 'slidetoright 0.5s';
+                slides[actual_slide].style.animation = 'slidetoright 0.8s';
             }
 
             if(actual_slide === 0){
@@ -103,15 +114,18 @@ for (let i = 1; i <= GoalsLength; i++) {
     });
 
     const audio = document.querySelector('audio');
-    document.querySelectorAll('.button_hearts').forEach((button) => {
+    const modals = document.getElementsByTagName('dialog');
+
+    document.querySelectorAll('.button_hearts').forEach((button, index) => {
+
         button.addEventListener('click', () => {
-            const modal = document.getElementById("dialog");
+            const modal = document.getElementById("dialog" + index.toString());
             if(audio){
                 audio.volume = 0.1;
                 audio.play();
             }
 
-            if(modal) modal.style.display = "flex";
+            if(modals[index]) modals[index].style.display = "flex";
         });
     });
     
@@ -123,7 +137,7 @@ for (let i = 1; i <= GoalsLength; i++) {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-position: center;    
+        background-position: center;
     }
 
     h1{
@@ -150,7 +164,7 @@ for (let i = 1; i <= GoalsLength; i++) {
 
     @keyframes slidetoright {
         0% {
-            transform: translateX(100%);
+            transform: translateX(10%);
         }
         100% {
             transform: translateX(0);
@@ -159,7 +173,7 @@ for (let i = 1; i <= GoalsLength; i++) {
 
     @keyframes slidefromright {
         0% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
         }
         100% {
             transform: translateX(0);
