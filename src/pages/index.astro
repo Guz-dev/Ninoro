@@ -32,41 +32,6 @@ import NinoroGoal from '../assets/imgs/goals/ninoro/actual_ninoro.jpg';
             <img class="flex mb-5 items-center rounded-xl ninoropfp" src={MoonGoal.src} alt="Moonmochi">        
         </a>
 
-<!-- 
-        <button id="left_slide" class="goal bg-gray-600 bg-opacity-75 rounded-full text-center align-middle text-white text-3xl font-extrabold w-10 h-10 md:opacity-60 hover:opacity-100 -scale-100">➤</button>
-
-        <slide id="0" class="hidden justify-center items-center gap-1 slide">                
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon1.src} alt="Moonmochi">        
-            </a>
-
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro1.src} alt="Ninoro">
-            </a>
-        </slide>
-
-        <slide id="1" class="hidden justify-center items-center gap-1 slide">                
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon2.src} alt="Moonmochi">        
-            </a>
-
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro2.src} alt="Ninoro">
-            </a>
-        </slide>
-
-        <slide id="2" class="hidden justify-center items-center gap-1 slide">                
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Moon3.src} alt="Moonmochi">        
-            </a>
-
-            <a class="flex w-1/2 justify-center items-center md:h-3/5 md:w-1/5">
-                <img class="flex mb-5 items-center rounded-xl ninoropfp" src={Ninoro3.src} alt="Ninoro">
-            </a>
-        </slide>
-
-        <button id="right_slide" class="goal bg-gray-600 bg-opacity-75 rounded-full text-center align-middle text-white text-3xl font-extrabold w-10 h-10 md:opacity-60 hover:opacity-100">➤</button>
-     -->
     </goal>
     <p class="text-2xl text-white font-bold">❤️ MoonMochi y Ninoro ❤️</p>
     <months class="flex flex-col md:w-1/3 w-2/3">
@@ -83,48 +48,6 @@ import NinoroGoal from '../assets/imgs/goals/ninoro/actual_ninoro.jpg';
 </Layout>
 
 <script>
-/*
-    let actual_slide = 0;
-    const slides = document.querySelectorAll('slide') as NodeListOf<HTMLElement>;
-    let max_slides = slides.length;
-    slides[actual_slide].classList.remove('hidden');
-    slides[actual_slide].classList.add('flex');
-
-    const goals_btn = document.querySelectorAll('.goal') as NodeListOf<HTMLButtonElement>;   
-    goals_btn[0].disabled = true;
-    
-    goals_btn.forEach((button) => {
-        button.addEventListener('click', (e) => {            
-            e.preventDefault();
-            if((e.target as HTMLInputElement).id === 'left_slide'){
-                slides[actual_slide].classList.remove('flex');
-                slides[actual_slide].classList.add('hidden');
-                actual_slide--;
-                slides[actual_slide].classList.remove('hidden');
-                slides[actual_slide].classList.add('flex');
-                slides[actual_slide].style.animation = 'slidefromright 0.5s';
-            }else{
-                slides[actual_slide].classList.remove('flex');
-                slides[actual_slide].classList.add('hidden');
-                actual_slide++;
-                slides[actual_slide].classList.remove('hidden');
-                slides[actual_slide].classList.add('flex');
-                slides[actual_slide].style.animation = 'slidetoright 0.8s';
-            }
-
-            if(actual_slide === 0){
-                goals_btn[0].disabled = true;
-                goals_btn[1].disabled = false;
-            } else if(actual_slide === max_slides - 1){
-                goals_btn[1].disabled = true;
-                goals_btn[0].disabled = false;
-            } else {
-                goals_btn[0].disabled = false;
-                goals_btn[1].disabled = false;
-            }
-        });
-    });
-*/
     const audio = document.querySelector('audio');
     const modals = document.getElementsByTagName('dialog');
 
